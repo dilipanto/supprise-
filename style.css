@@ -1,0 +1,651 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+
+    overflow:hidden;
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    background:
+        radial-gradient(circle at top right,
+        rgba(70,70,120,.35),
+        transparent 30%),
+
+        radial-gradient(circle at bottom left,
+        rgba(80,20,120,.25),
+        transparent 40%),
+
+        linear-gradient(
+        180deg,
+        #050814 0%,
+        #090f2d 35%,
+        #111844 70%,
+        #03030a 100%);
+
+    animation:bgMove 25s linear infinite;
+
+}
+
+/* Animated Background */
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    z-index:-2;
+
+}
+
+/* ==========================
+   MOON
+========================== */
+
+.moon{
+
+    position:absolute;
+
+    top:70px;
+
+    right:100px;
+
+    width:98px;
+
+    height:98px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(circle at 26% 28%,
+        rgba(170,170,170,.10) 0 5px,
+        transparent 6px),
+
+        radial-gradient(circle at 67% 40%,
+        rgba(150,150,150,.08) 0 6px,
+        transparent 7px),
+
+        radial-gradient(circle at 46% 70%,
+        rgba(180,180,180,.06) 0 4px,
+        transparent 5px),
+
+        radial-gradient(circle at 35% 30%,
+        #fdfdf9 0%,
+        #ebe6d4 55%,
+        #d6d1c5 80%,
+        #bcb7ae 100%);
+
+    box-shadow:
+        0 0 10px rgba(255,255,255,.15),
+        0 0 24px rgba(220,230,255,.08),
+        0 0 45px rgba(180,200,255,.04);
+
+    animation:moonGlow 6s ease-in-out infinite;
+
+}
+
+
+
+/* Stars */
+
+.stars{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+}
+
+.star{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:white;
+
+    opacity:.2;
+
+    animation:twinkle linear infinite;
+
+}
+
+@keyframes twinkle{
+
+    0%,100%{
+
+        opacity:.2;
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        opacity:1;
+
+        transform:scale(1.4);
+
+    }
+
+}
+/* Floating Hearts */
+
+.hearts::before{
+
+    content:"❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️";
+
+    position:absolute;
+
+    width:100%;
+
+    bottom:-100px;
+
+    font-size:25px;
+
+    animation:floatHearts 15s linear infinite;
+
+    opacity:0;
+
+}
+
+/* Glass Card */
+
+.container{
+
+    width:85%;
+
+    max-width:700px;
+
+    text-align:center;
+
+    padding:40px 50px;
+
+    margin:auto;
+
+    border-radius:30px;
+
+    backdrop-filter:blur(25px);
+
+    background:linear-gradient(
+145deg,
+rgba(255,255,255,.14),
+rgba(255,255,255,.08)
+);
+
+    border:1px solid rgba(255,255,255,.25);
+
+box-shadow:
+    0 20px 60px rgba(0,0,0,.45),
+    0 0 20px rgba(255,182,193,.25),
+    0 0 40px rgba(255,105,180,.15),
+    inset 0 0 1px rgba(255,255,255,.25);
+
+    /*animation:floatCard 5s ease-in-out infinite;*/
+opacity:0;
+
+transform:translateY(220px) scale(.92);
+
+transition:
+    transform 1.3s cubic-bezier(.22,1,.36,1),
+    opacity 1.1s ease;
+    
+
+}
+
+.ring{
+
+    font-size:75px;
+
+    animation:
+        bounce 2s infinite,
+        glowRing 2.5s ease-in-out infinite;
+
+}
+
+h1{
+
+    margin-top:15px;
+
+    font-size:56px;
+
+    line-height:1.15;
+
+    white-space:nowrap;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    text-shadow:
+        0 0 15px rgba(255,255,255,.35);
+
+}
+#message{
+    margin:20px 0;
+    font-size:22px;
+    color:#ffd1dc;
+    min-height:40px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    margin-top:20px;
+}
+
+button{
+    padding:15px 35px;
+    border:none;
+    border-radius:40px;
+    cursor:pointer;
+    font-size:20px;
+    transition:.3s;
+}
+
+#yesBtn{
+    background:#ff2d75;
+    color:white;
+    box-shadow:0 0 20px #ff2d75;
+}
+
+#yesBtn:hover{
+    transform:scale(1.1);
+}
+
+#noBtn{
+    background:#555;
+    color:white;
+    position:relative;
+}
+
+/* Celebration */
+
+#celebration{
+    position:fixed;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(#ff8ec7,#ffd6ea);
+    color:#b1005d;
+    text-align:center;
+}
+
+#celebration h1{
+    font-size:55px;
+}
+
+#celebration h2{
+    margin:20px;
+}
+
+#catDance{
+    width:260px;
+    margin:25px;
+    border-radius:20px;
+}
+
+.hidden{
+    display:none !important;
+}
+
+/* Animations */
+@keyframes moonGlow{
+
+    0%,100%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.02);
+
+    }
+
+}
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+@keyframes bounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-15px);
+    }
+}
+
+
+@keyframes floatHearts{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-120vh);
+    }
+}
+/* 🌙 Moon Glow */
+
+/* 🌸 Falling Rose Petals */
+
+.petals{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+}
+
+.petals::before{
+
+    content:"🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸";
+
+    position:absolute;
+
+    top:-120px;
+
+    left:-10%;
+
+    width:120%;
+
+    font-size:26px;
+
+    animation:fallPetals 18s linear infinite;
+
+    opacity:0;
+
+}
+
+@keyframes fallPetals{
+
+    0%{
+
+        transform:
+        translateY(-120px)
+        rotate(0deg);
+
+    }
+
+    100%{
+
+        transform:
+        translateY(120vh)
+        rotate(360deg);
+
+    }
+
+}
+/* Floating Card */
+
+@keyframes floatCard{
+
+    0%,100%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+}
+
+/* Ring Glow */
+
+@keyframes glowRing{
+
+    0%,100%{
+
+        filter:
+        drop-shadow(0 0 6px #7dd3fc);
+
+    }
+
+    50%{
+
+        filter:
+        drop-shadow(0 0 18px #38bdf8)
+        drop-shadow(0 0 30px #ffffff);
+
+    }
+
+}
+/* =========================================
+   CINEMATIC INTRO
+========================================= */
+
+#introScreen{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    background:transparent;
+
+    z-index:100;
+
+    transition:opacity 1s ease;
+
+    pointer-events:none;
+
+}
+
+#introText{
+
+    width:90%;
+
+    max-width:750px;
+
+    text-align:center;
+
+    color:white;
+
+    font-size:48px;
+
+    font-weight:700;
+
+    line-height:1.6;
+
+    text-shadow:
+        0 0 15px rgba(255,255,255,.25),
+        0 0 40px rgba(255,105,180,.15);
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    transition:all .8s ease;
+
+    min-height:180px;
+
+}
+
+/* Typewriter Cursor */
+
+#introText::after{
+
+    content:"|";
+
+    margin-left:5px;
+
+    animation:blink .8s infinite;
+
+}
+
+@keyframes blink{
+
+    50%{
+
+        opacity:0;
+
+    }
+
+}
+
+/* Fade Away */
+
+.fadeOut{
+
+    opacity:0;
+
+    pointer-events:none;
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    #introText{
+
+        font-size:30px;
+
+        padding:30px;
+
+    }
+
+}
+.showIntro{
+
+    opacity:1 !important;
+
+    transform:translateY(0) !important;
+
+}
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:-5%;
+
+    background:inherit;
+
+    animation:cameraFloat 18s ease-in-out infinite;
+
+    z-index:-10;
+
+}
+
+@keyframes cameraFloat{
+
+    0%,100%{
+
+        transform:
+        scale(1);
+
+    }
+
+    50%{
+
+        transform:
+        scale(1.03);
+
+    }
+
+}
+
+
+.hearts{
+
+    opacity:0;
+
+    transition:opacity 2s ease;
+
+}
+
+.petals{
+
+    opacity:0;
+
+    transition:opacity 2s ease;
+
+}
+/* =========================================
+   SHOW EFFECTS AFTER INTRO
+========================================= */
+
+.hearts.show::before{
+
+    opacity:.25;
+
+    transition:opacity 2s ease;
+
+}
+
+.petals.show::before{
+
+    opacity:.45;
+
+    transition:opacity 2s ease;
+
+}
+/* ===================================
+   BACKGROUND FADE
+===================================*/
+
+
+/* =========================================
+   CARD ENTRANCE
+========================================= */
+
+.container.show{
+
+    opacity:1;
+
+    transform:translateY(0) scale(1);
+
+}
+/* =========================================
+   CINEMATIC CAMERA
+========================================= */
+
+@keyframes cameraZoom {
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    100%{
+
+        transform:scale(1.03);
+
+    }
+
+}
+
+.zoomScene{
+
+    animation:cameraZoom 6s ease forwards;
+
+}
