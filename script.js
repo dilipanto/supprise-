@@ -147,8 +147,11 @@ noBtn.addEventListener("touchstart", function(e){
 // YES Button
 yesBtn.addEventListener("click", () => {
 
-    container.style.display = "none";
-    celebration.classList.remove("hidden");
+    yesBtn.classList.add("yesClicked");
+
+    const ring = document.querySelector(".ring");
+
+    ring.classList.add("ringCelebrate");
 
 });
 /* ===============================
