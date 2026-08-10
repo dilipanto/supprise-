@@ -149,11 +149,73 @@ yesBtn.addEventListener("click", () => {
 
     yesBtn.classList.add("yesClicked");
 
-    const ring = document.querySelector(".ring");
+const ring = document.querySelector(".ring");
+const moon = document.querySelector(".moon");
+const stars = document.querySelector(".stars");
+const card = document.querySelector(".container");
 
-    ring.classList.add("ringCelebrate");
+ring.classList.add("ringCelebrate");
+
+setTimeout(()=>{
+
+    moon.classList.add("moonCelebrate");
+
+},700);
+
+setTimeout(()=>{
+
+    stars.classList.add("starsCelebrate");
+
+},1400);
+setTimeout(()=>{
+
+    card.style.animation = "";
+    card.style.animation = "cardDissolve 1.5s ease forwards";
+
+    // Wait until the dissolve finishes
+    setTimeout(()=>{
+
+container.classList.add("hidden");
+
+celebration.classList.remove("hidden");
+
+// Wait one frame so the browser paints it first
+requestAnimationFrame(() => {
+
+    celebration.classList.add("show");
+
+    setTimeout(()=>{
+
+        document
+            .getElementById("catDance")
+            .classList.add("catEnter");
+
+    },600);
+
+    setTimeout(()=>{
+
+        document
+            .querySelector("#celebration h1")
+            .classList.add("finalShow");
+
+        document
+            .querySelector("#celebration h2")
+            .classList.add("finalShow");
+
+        document
+            .querySelector("#celebration h3")
+            .classList.add("finalShow");
+
+    },1800);
 
 });
+
+
+});
+    },1500);
+
+},2200);
+
 /* ===============================
    TYPEWRITER FUNCTIONS
 ================================ */

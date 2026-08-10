@@ -309,15 +309,42 @@ button{
 /* Celebration */
 
 #celebration{
+
     position:fixed;
+
     inset:0;
+
     display:flex;
+
     flex-direction:column;
+
     justify-content:center;
+
     align-items:center;
-    background:linear-gradient(#ff8ec7,#ffd6ea);
+
+    background:
+        radial-gradient(circle at top,#ffe6f3,#ffc8df 55%,#ffb6d4);
+
     color:#b1005d;
+
     text-align:center;
+
+    opacity:0;
+
+    transform:scale(.96);
+
+    transition:
+
+        opacity .8s ease,
+
+        transform .8s ease;
+
+}#celebration.show{
+
+    opacity:1;
+
+    transform:scale(1);
+
 }
 
 #celebration h1{
@@ -763,5 +790,200 @@ body::before{
     animation:
         ringCelebrate 1.4s ease,
         glowRing 2.8s ease-in-out infinite;
+
+}
+/* =========================================
+   MOON CELEBRATION
+========================================= */
+
+@keyframes moonCelebrate{
+
+    0%{
+
+        transform:scale(1);
+
+        filter:brightness(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.12);
+
+        filter:
+            brightness(1.25)
+            drop-shadow(0 0 25px rgba(255,255,220,.8));
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        filter:brightness(1);
+
+    }
+
+}
+
+.moonCelebrate{
+
+    animation:moonCelebrate 2s ease;
+
+}
+/* =========================================
+   STAR CELEBRATION
+========================================= */
+
+@keyframes starsCelebrate{
+
+    0%{
+
+        filter:brightness(1);
+
+    }
+
+    50%{
+
+        filter:
+            brightness(2)
+            drop-shadow(0 0 10px white);
+
+    }
+
+    100%{
+
+        filter:brightness(1);
+
+    }
+
+}
+
+.starsCelebrate{
+
+    animation:starsCelebrate 2s ease;
+
+}
+/* =========================================
+   GLASS CARD DISSOLVE
+========================================= */
+
+@keyframes cardDissolve{
+
+    0%{
+
+        opacity:1;
+
+        transform:translateY(0) scale(1);
+
+        filter:blur(0);
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:translateY(-20px) scale(.95);
+
+        filter:blur(12px);
+
+    }
+
+}
+
+.cardDissolve{
+
+    animation:cardDissolve 1.5s ease forwards;
+
+}
+/* =========================================
+   FINAL MESSAGE
+========================================= */
+
+#celebration h1,
+#celebration h2,
+#celebration h3{
+
+    opacity:0;
+    transform:translateY(25px);
+
+}
+
+#celebration h1.finalShow{
+
+    animation:finalTextIn 1s ease forwards;
+
+}
+
+#celebration h2.finalShow{
+
+    animation:finalTextIn 1s ease .25s forwards;
+
+}
+
+#celebration h3.finalShow{
+
+    animation:finalTextIn 1s ease .5s forwards;
+
+}
+
+@keyframes finalTextIn{
+
+    from{
+
+        opacity:0;
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+/* =========================================
+   CAT ENTRANCE
+========================================= */
+
+#catDance{
+
+    opacity:0;
+
+    transform:translateY(120px) scale(.8);
+
+}
+
+#catDance.catEnter{
+
+    animation:catEntrance 1.2s cubic-bezier(.22,1,.36,1) forwards;
+
+}
+
+@keyframes catEntrance{
+
+    0%{
+
+        opacity:0;
+        transform:translateY(120px) scale(.8);
+
+    }
+
+    60%{
+
+        opacity:1;
+        transform:translateY(-12px) scale(1.05);
+
+    }
+
+    100%{
+
+        opacity:1;
+        transform:translateY(0) scale(1);
+
+    }
 
 }
